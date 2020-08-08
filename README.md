@@ -115,4 +115,6 @@
 # Change object name in Admin site
 + In object in models.py
 -  class Meta:
-         verbose_name = "cai gi day"
+         verbose_name = "Ten object"
+--DJANGO REST FRAMEWORK
+# Create APIView
