@@ -107,3 +107,12 @@
 - python manage.py makemigrations profiles_api
 + Run migate project
 - python manage.py migrate
+# Django create superuser
+- python manage.py createsuperuser
+# Enable model in django Admin
++ in app/admin.py
+- admin.site.register(models.UserProfile)
+# Change object name in Admin site
++ In object in models.py
+-  class Meta:
+         verbose_name = "cai gi day"
