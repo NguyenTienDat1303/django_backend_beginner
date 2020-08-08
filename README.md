@@ -118,3 +118,39 @@
          verbose_name = "Ten object"
 --DJANGO REST FRAMEWORK
 # Create APIView
++ in app/views
+- class HelloApiView(APIView):
+    """Test API View"""
+
+    def get(self, request, format=None):
+        """Return a list of APIView features"""
+        an_apiview = [
+            'Users HTTP methods as function(get, post, patch, put, delete)',
+            'Is similar to a traditional Django View',
+            'Give you the most control over you application logic',
+            'Is mapped manually to URLs',
+        ]
+
+        return Response({
+            'message': 'Hello!',
+            'an_apiview': an_apiview
+        })
+# Config url
++ in app: create urls.py
+- 
+    from django.urls import path
+    from profiles_api import views
+
+    urlpatterns = [
+        path('hello-view/', views.HelloApiView.as_view()),
+    ]
++ in project/urls.py
+- 
+    from django.contrib import admin
+    from django.urls import path, include
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('api/', include('profiles_api.urls'))
+    ]
++ Test in link: http://localhost:8000/api/hello-view/
